@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CNIT 133 Homework 4 - Looping Statements (Part 1)</title>
+  <meta name="description" content="HW4 Part 1: Looping statements (for, while) with formatted results and draggable element">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  
+  <style>
+    body { position: relative; }
+    .sidebar {
+      position: sticky; top: 2.5rem;
+      height: calc(100vh - 80px);
+      padding-top: 1rem; border-right: 1px solid #ddd;
+    }
+    .sidebar .nav-link.active {
+      font-weight: 600; color: #0d6efd !important;
+      background-color: #e9f2ff; border-radius: 6px;
+    }
+    section { min-height: 60vh; padding-top: 4rem; padding-bottom: 2rem; }
+    pre { white-space: pre-wrap; }
+    .draggable { cursor: move; }
+  </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100" data-bs-spy="scroll" data-bs-target="#jumpNav" data-bs-offset="80" tabindex="0">
+  <!-- Top Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="/index.html">Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/index.html">Assignments</a></li>
+          <li class="nav-item"><a class="nav-link" href="/assignments/hw4-part1.html">HW4 Part 1</a></li>
+          <li class="nav-item"><a class="nav-link" href="/assignments/hw4-part2.html">HW4 Part 2</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Body -->
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav id="jumpNav" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+        <div class="nav flex-column">
+          <a class="nav-link" href="#forBlock">For loop</a>
+          <a class="nav-link" href="#whileBlock">While loop</a>
+          <a class="nav-link" href="#dragBlock">jQuery draggable</a>
+        </div>
+      </nav>
+
+      <!--Main-->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-5">
+        <h1 class="display-6 mb-4 text-center" style="margin-top: 60px;">HW4 – Looping Statements (Part 1)</h1>
+
+        <!--For loop-->
+        <section id="forBlock">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">For Loop</h5>
+               <p> Calculates the product AND sum of every 4th integer from 5 to 25 inclusive </p>
+              <pre id="forLoopResults" class="bg-light p-3"></pre>
+            </div>
+          </div>
+        </section>
+
+        <!--While loop -->
+        <section id="whileBlock">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">While Loop</h5>
+              <p> Calculates the product AND sum of every 3rd integer from 3 to 18 inclusive </p>
+              <pre id="whileLoopResults" class="bg-light p-3"></pre>
+            </div>
+          </div>
+        </section>
+
+        <!--Draggable element-->
+<section id="dragBlock">
+  <div class="card mb-4 draggable" style="width:max-content;">
+    <div class="card-header fw-semibold">jQuery draggable block <br> (Image Element Test) </div>
+    <img
+      src="https://plus.unsplash.com/premium_photo-1724800663657-3e57bf4f622c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWF0aHxlbnwwfHwwfHx8MA%3D%3D"
+      alt="Abstract math-themed image"
+      width="200" height="100"
+      style="display:block; width:200px; height:100px; object-fit:cover; user-select:none;"
+    >
+  </div>
+</section>
+
+
+        <div class="text-center">
+          <a href="/index.html" class="btn btn-primary mt-2">← Back to Portfolio</a>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $(function () {
+      /* --------For loop-------- */
+      let forProduct = 1, forSum = 0;
+      const forNums = [];
+      for (let i = 5; i <= 25; i += 4) {
+        forProduct *= i;
+        forSum += i;
+        forNums.push(i);
+      }
+      $("#forLoopResults").text(
+        `Product: The result of ${forNums.join(" * ")} is ${forProduct.toLocaleString()}\n` +
+        `Sum: The result of ${forNums.join(" + ")} is ${forSum.toLocaleString()}`
+      );
+
+      /* --------While loop:-------- */
+      let whileProduct = 1, whileSum = 0, j = 3;
+      const whileNums = [];
+      while (j <= 18) {
+        whileProduct *= j;
+        whileSum += j;
+        whileNums.push(j);
+        j += 3;
+      }
+      $("#whileLoopResults").text(
+        `Product: The result of ${whileNums.join(" * ")} is ${whileProduct.toLocaleString()}\n` +
+        `Sum: The result of ${whileNums.join(" + ")} is ${whileSum.toLocaleString()}`
+      );
+
+      /* --------jQuery UI draggable-------- */
+    $(".draggable").draggable({
+      handle: ".card-header",
+      containment: "window",
+      scroll: false,
+      cursor: "move",
+      opacity: 0.9
+    });
+  });
+  </script>
+</body>
+</html>
