@@ -29,51 +29,53 @@
     }
     .value-cell { background-color: #e9ecef; font-weight: bold; color: #000; text-align: right; }
     .text-end-input { text-align: right; }
-    label { display: inline-block; width: 5em; }
+.form-label, .form-check-label { display: inline; width: auto; }
 
-  /* ----- hw5 part 1 add ons ----- */
-  #ageGroup,
-    #browserGroup {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem 1.5rem;
-      align-items: center;
-      margin: .25rem 0 .75rem;
-    }
-    #ageGroup .form-check,
-    #browserGroup .form-check {
-      display: inline-flex;
-      align-items: center;
-      margin: 0;
-      padding: .125rem 0;
-    }
-    #ageGroup .form-check-input,
-    #browserGroup .form-check-input {
-      margin-right: .5rem;
-    }
-    #movieRow .d-flex { 
-      flex-wrap: nowrap;
-      align-items: center;
-      white-space: nowrap;
-    }
-    #movieSelect { min-width: 250px; }
-    .actions-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;    
-      margin-top: 1rem;
-      padding-top: .75rem;
-      border-top: 1px solid #dee2e6;
-      width: 100%;
-    }
-  /* ----- hw5 part 2 add ons ----- */
-  #part2 .form-label.text-nowrap { white-space: nowrap; }
-  #menuClickRow .d-flex { flex-wrap: nowrap; white-space: nowrap; } 7
-  /* ----- hw5 part 3 add ons ----- */  
-    #part3 .form-label.text-nowrap {
-    white-space: nowrap;
-  }
+
+/* ----- hw5 part 1 add ons ----- */
+#ageGroup,
+#browserGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: center;
+  margin: .25rem 0 .75rem;
+}
+#ageGroup .form-check,
+#browserGroup .form-check {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: .125rem 0;
+}
+#ageGroup .form-check-input,
+#browserGroup .form-check-input {
+  margin-right: .5rem;
+}
+#movieRow .d-flex {
+  flex-wrap: nowrap;
+  align-items: center;
+  white-space: nowrap;
+}
+#movieSelect { min-width: 250px; }
+.actions-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding-top: .75rem;
+  border-top: 1px solid #dee2e6;
+  width: 100%;
+}
+
+/* ----- hw5 part 2 add ons ----- */
+#part2 .form-label.text-nowrap { white-space: nowrap; }
+#menuClickRow .d-flex { flex-wrap: nowrap; white-space: nowrap; }
+
+/* ----- hw5 part 3 add ons ----- */
+#part3 .form-label.text-nowrap { white-space: nowrap; }
+
 </style>
 </head>
 
