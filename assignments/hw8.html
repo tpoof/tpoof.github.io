@@ -27,14 +27,25 @@
 function loadDoc() {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
+    console.log('Status:', this.status);
+    console.log('Response text (first 200 chars):', this.responseText.substring(0, 200));
     myFunction(this);
-  }
+  };
+  xhttp.onerror = function() {
+    console.error('Request error');
+  };
   xhttp.open("GET", "cd_catalog.xml");
   xhttp.send();
 }
 
 function myFunction(xml) {
   const xmlDoc = xml.responseXML;
+
+  if (!xmlDoc) {
+    console.error('responseXML is null. Likely invalid XML or wrong content-type/URL.');
+    return;
+  }
+
   const x = xmlDoc.getElementsByTagName("CD");
   let table = "<tr><th>Artist</th><th>Title</th></tr>";
   for (let i = 0; i < x.length; i++) {
