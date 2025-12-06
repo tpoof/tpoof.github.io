@@ -39,16 +39,17 @@ function loadDoc() {
 }
 
 function myFunction(xml) {
-  // Try responseXML first
+  // Debug: show the *end* of the file too
+  const fullText = xml.responseText;
+  console.log('Response text (last 200 chars):', fullText.substring(fullText.length - 200));
+
   let xmlDoc = xml.responseXML;
 
-  // If responseXML is null (GitHub might be serving as text/plain), parse manually
   if (!xmlDoc) {
     console.warn('responseXML is null. Parsing with DOMParser instead.');
     const parser = new DOMParser();
-    xmlDoc = parser.parseFromString(xml.responseText, "text/xml");
+    xmlDoc = parser.parseFromString(fullText, "text/xml");
 
-    // Basic parse error check
     const parseError = xmlDoc.getElementsByTagName("parsererror");
     if (parseError.length > 0) {
       console.error('XML parse error:', parseError[0].textContent);
@@ -70,6 +71,7 @@ function myFunction(xml) {
   document.getElementById("demo").innerHTML = table;
 }
 </script>
+
 
 
 <h2>Explanation of AJAX</h2>
