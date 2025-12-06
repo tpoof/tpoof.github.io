@@ -39,25 +39,38 @@ function loadDoc() {
 }
 
 function myFunction(xml) {
-  const xmlDoc = xml.responseXML;
+  // Try responseXML first
+  let xmlDoc = xml.responseXML;
 
+  // If responseXML is null (GitHub might be serving as text/plain), parse manually
   if (!xmlDoc) {
-    console.error('responseXML is null. Likely invalid XML or wrong content-type/URL.');
-    return;
+    console.warn('responseXML is null. Parsing with DOMParser instead.');
+    const parser = new DOMParser();
+    xmlDoc = parser.parseFromString(xml.responseText, "text/xml");
+
+    // Basic parse error check
+    const parseError = xmlDoc.getElementsByTagName("parsererror");
+    if (parseError.length > 0) {
+      console.error('XML parse error:', parseError[0].textContent);
+      return;
+    }
   }
 
   const x = xmlDoc.getElementsByTagName("CD");
   let table = "<tr><th>Artist</th><th>Title</th></tr>";
+
   for (let i = 0; i < x.length; i++) {
     table += "<tr><td>" +
-      x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+      x[i].getElementsByTagName("ARTIST")[0].textContent +
       "</td><td>" +
-      x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+      x[i].getElementsByTagName("TITLE")[0].textContent +
       "</td></tr>";
   }
+
   document.getElementById("demo").innerHTML = table;
 }
 </script>
+
 
 <h2>Explanation of AJAX</h2>
 <p>
