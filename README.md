@@ -1,2 +1,2 @@
-# This is my GitHub page for CNIT 131A (SS26)
-# tpoof.github.io
+# CNIT 131A (SS26) Assignments
+tpoof.github.io
