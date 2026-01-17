@@ -9,7 +9,7 @@
 </head>
 <body class="min-h-screen page-shell">
   <header class="px-6 pt-14 pb-8 text-center">
-    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-[color:var(--baltic-blue-900)]">Stephanie's Assignment Page</h1>
+    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-[color:var(--baltic-blue-900)]">CNIT-131A – XML and JSON Assignments</h1>
     <p class="mt-4 mx-auto max-w-2xl text-lg text-[color:var(--baltic-blue-800)]">
     </p>
   </header>
@@ -20,35 +20,32 @@
         <h2 class="text-2xl font-semibold text-[color:var(--baltic-blue-900)]">Assignments</h2>
         <span class="rounded-full bg-[color:var(--cerulean-100)] px-4 py-1 text-sm font-semibold text-[color:var(--cerulean-800)]">Spring 2026</span>
       </div>
-      <ul class="mt-6 space-y-4">
-        <li class="rounded-xl border border-[color:var(--sky-blue-light-200)] bg-[color:var(--sky-blue-light-50)]/70 p-4">
-          <div class="flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <p class="text-lg font-bold text-[color:var(--yale-blue-800)]">Assignment 1</p>
-              <span class="block text-sm text-[color:var(--baltic-blue-800)]">Assignment 1 - Coming Soon</span>
-            </div>
-            <a class="inline-flex items-center justify-center rounded-full border border-[color:var(--yale-blue-700)] bg-[color:var(--yale-blue-200)] px-4 py-2 text-sm font-semibold text-[color:var(--yale-blue-900)] hover:bg-[color:var(--yale-blue-300)]" href="assignments/hw1.html">Coming Soon</a>
-          </div>
-        </li>
-        <li class="rounded-xl border border-[color:var(--sky-blue-light-200)] bg-[color:var(--sky-blue-light-50)]/70 p-4">
-          <div class="flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <p class="text-lg font-bold text-[color:var(--yale-blue-800)]">Assignment 2</p>
-              <span class="block text-sm text-[color:var(--baltic-blue-800)]">Assignment 2 - Coming Soon</span>
-            </div>
-            <span class="inline-flex items-center justify-center rounded-full border border-[color:var(--yale-blue-700)] bg-[color:var(--yale-blue-100)] px-4 py-2 text-sm font-semibold text-[color:var(--yale-blue-900)]">TBD</span>
-          </div>
-        </li>
-        <li class="rounded-xl border border-[color:var(--sky-blue-light-200)] bg-[color:var(--sky-blue-light-50)]/70 p-4">
-          <div class="flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <p class="text-lg font-bold text-[color:var(--yale-blue-800)]">Assignment 3</p>
-              <span class="block text-sm text-[color:var(--baltic-blue-800)]">Assignment 3 - Coming Soon</span>
-            </div>
-            <span class="inline-flex items-center justify-center rounded-full border border-[color:var(--yale-blue-700)] bg-[color:var(--yale-blue-100)] px-4 py-2 text-sm font-semibold text-[color:var(--yale-blue-900)]">TBD</span>
-          </div>
-        </li>
-      </ul>
+      <div class="mt-6 overflow-hidden rounded-xl border border-[color:var(--sky-blue-light-200)]">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-[color:var(--sky-blue-light-50)]">
+            <tr>
+              <th class="px-4 py-3 text-sm font-semibold text-[color:var(--baltic-blue-900)]" scope="col">Assignment</th>
+              <th class="px-4 py-3 text-sm font-semibold text-[color:var(--baltic-blue-900)]" scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[color:var(--sky-blue-light-200)] bg-white/90">
+            <tr>
+              <td class="px-4 py-3">
+                <a class="font-semibold text-[color:var(--yale-blue-800)] hover:text-[color:var(--yale-blue-600)]" href="assignments/hw1.html">Homework 1</a>
+              </td>
+              <td class="px-4 py-3 text-[color:var(--baltic-blue-800)]">XML basics and well-formed structure practice.</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-[color:var(--yale-blue-800)]">Homework 2</td>
+              <td class="px-4 py-3 text-[color:var(--baltic-blue-800)]">Placeholder for the next assignment.</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-[color:var(--yale-blue-800)]">Homework 3</td>
+              <td class="px-4 py-3 text-[color:var(--baltic-blue-800)]">Placeholder for the next assignment.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
   </main>
 
