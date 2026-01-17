@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="CNIT 131A Assignment 2 page.">
+  <title>CNIT 131A - Assignment 2</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen page-shell">
+  <header class="px-6 pt-14 pb-8 text-center">
+    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-[color:var(--baltic-blue-900)]">Assignment 2: Coming Soon</h1>
+    <p class="mt-4 mx-auto max-w-2xl text-lg text-[color:var(--baltic-blue-800)]">
+      Placeholder
+    </p>
+  </header>
+
+  <main class="px-6 pb-12">
+    <section class="mx-auto max-w-3xl rounded-2xl bg-white/90 p-8 shadow-xl shadow-[0_18px_40px_-22px_var(--yale-blue-900)]">
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <h2 class="text-2xl font-semibold text-[color:var(--baltic-blue-900)]">Placeholder</h2>
+      </div>
+      <div class="mt-6 space-y-4 text-[color:var(--baltic-blue-800)]">
+        <p>Placeholder</p>
+      </div>
+      <nav class="mt-8 rounded-xl bg-[color:var(--sky-blue-light-50)]/70 p-4">
+        <div class="mt-3 flex flex-wrap justify-center gap-3" role="tablist" aria-label="Assignment parts">
+          <button class="part-tab rounded-full border border-[color:var(--yale-blue-700)] bg-[color:var(--yale-blue-200)] px-4 py-2 text-sm font-semibold text-[color:var(--yale-blue-900)]" type="button" data-target="part-1" aria-controls="part-1" aria-selected="true">Part 1</button>
+          <button class="part-tab rounded-full border border-[color:var(--yale-blue-700)] bg-white px-4 py-2 text-sm font-semibold text-[color:var(--yale-blue-900)]" type="button" data-target="part-2" aria-controls="part-2" aria-selected="false">Part 2</button>
+          <button class="part-tab rounded-full border border-[color:var(--yale-blue-700)] bg-white px-4 py-2 text-sm font-semibold text-[color:var(--yale-blue-900)]" type="button" data-target="part-3" aria-controls="part-3" aria-selected="false">Part 3</button>
+        </div>
+      </nav>
+      <div class="mt-6 rounded-xl border border-[color:var(--yale-blue-200)] bg-white p-6">
+        <div id="part-1" class="part-panel space-y-3 text-[color:var(--baltic-blue-800)]" role="tabpanel">
+          <h3 class="text-lg font-semibold text-[color:var(--baltic-blue-900)]">Part 1: Placeholder</h3>
+        </div>
+        <div id="part-2" class="part-panel hidden space-y-3 text-[color:var(--baltic-blue-800)]" role="tabpanel">
+          <h3 class="text-lg font-semibold text-[color:var(--baltic-blue-900)]">Part 2: Placeholder</h3>
+        </div>
+        <div id="part-3" class="part-panel hidden space-y-3 text-[color:var(--baltic-blue-800)]" role="tabpanel">
+          <h3 class="text-lg font-semibold text-[color:var(--baltic-blue-900)]">Part 3: Placeholder</h3>
+        </div>
+      </div>
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a class="inline-flex items-center justify-center rounded-full border border-[color:var(--yale-blue-800)] bg-[color:var(--yale-blue-700)] px-4 py-2 text-sm font-semibold text-white hover:bg-[color:var(--yale-blue-800)]" href="index.html">Back to Home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="px-6 pb-10 text-center text-sm text-[color:var(--baltic-blue-700)]">
+    <div class="flex flex-col items-center gap-4">
+      <a class="inline-flex items-center justify-center rounded-full border border-[color:var(--yale-blue-800)] bg-[color:var(--yale-blue-700)] px-4 py-2 text-sm font-semibold text-white hover:bg-[color:var(--yale-blue-800)]" href="index.html">Back to Home</a>
+    </div>
+  </footer>
+  <script>
+    const tabs = document.querySelectorAll(".part-tab");
+    const panels = document.querySelectorAll(".part-panel");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const target = tab.getAttribute("data-target");
+
+        tabs.forEach((button) => {
+          const isActive = button === tab;
+          button.setAttribute("aria-selected", isActive ? "true" : "false");
+          button.classList.toggle("bg-[color:var(--yale-blue-200)]", isActive);
+          button.classList.toggle("bg-white", !isActive);
+        });
+
+        panels.forEach((panel) => {
+          panel.classList.toggle("hidden", panel.id !== target);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
 
