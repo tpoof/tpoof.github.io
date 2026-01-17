@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700&display=swap");
+
+:root {
+  --baltic-blue-50: #ecf3f9;
+  --baltic-blue-100: #d8e7f3;
+  --baltic-blue-200: #b2cfe6;
+  --baltic-blue-300: #8bb8da;
+  --baltic-blue-400: #65a0cd;
+  --baltic-blue-500: #3e88c1;
+  --baltic-blue-600: #326d9a;
+  --baltic-blue-700: #255274;
+  --baltic-blue-800: #19364d;
+  --baltic-blue-900: #0c1b27;
+  --baltic-blue-950: #09131b;
+
+  --cerulean-50: #ecf4f8;
+  --cerulean-100: #d9e8f2;
+  --cerulean-200: #b4d2e4;
+  --cerulean-300: #8ebbd7;
+  --cerulean-400: #68a4ca;
+  --cerulean-500: #428ebd;
+  --cerulean-600: #357197;
+  --cerulean-700: #285571;
+  --cerulean-800: #1b394b;
+  --cerulean-900: #0d1c26;
+  --cerulean-950: #09141a;
+
+  --alabaster-grey-50: #f2f3f1;
+  --alabaster-grey-100: #e6e8e3;
+  --alabaster-grey-200: #ccd0c8;
+  --alabaster-grey-300: #b3b9ac;
+  --alabaster-grey-400: #99a191;
+  --alabaster-grey-500: #808a75;
+  --alabaster-grey-600: #666e5e;
+  --alabaster-grey-700: #4d5346;
+  --alabaster-grey-800: #33372f;
+  --alabaster-grey-900: #1a1c17;
+  --alabaster-grey-950: #121310;
+
+  --yale-blue-50: #eaf4fa;
+  --yale-blue-100: #d6eaf5;
+  --yale-blue-200: #add4eb;
+  --yale-blue-300: #84bfe1;
+  --yale-blue-400: #5baad7;
+  --yale-blue-500: #3294cd;
+  --yale-blue-600: #2877a4;
+  --yale-blue-700: #1e597b;
+  --yale-blue-800: #143b52;
+  --yale-blue-900: #0a1e29;
+  --yale-blue-950: #07151d;
+
+  --sky-blue-light-50: #ecf6f9;
+  --sky-blue-light-100: #d8edf3;
+  --sky-blue-light-200: #b1dae7;
+  --sky-blue-light-300: #8bc8da;
+  --sky-blue-light-400: #64b5ce;
+  --sky-blue-light-500: #3da3c2;
+  --sky-blue-light-600: #31829b;
+  --sky-blue-light-700: #256274;
+  --sky-blue-light-800: #18414e;
+  --sky-blue-light-900: #0c2127;
+  --sky-blue-light-950: #09171b;
+
+  --page-bg-start: var(--alabaster-grey-100);
+  --page-bg-mid: var(--sky-blue-light-100);
+  --page-bg-end: var(--baltic-blue-100);
+  --page-text: var(--baltic-blue-950);
+}
+
+body.page-shell {
+  font-family: "Public Sans", system-ui, sans-serif;
+  background: linear-gradient(135deg, var(--page-bg-start), var(--page-bg-mid), var(--page-bg-end));
+  color: var(--page-text);
+}
