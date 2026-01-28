@@ -1,0 +1,36 @@
+/* Light gray background for the entire XML document */
+catalog {
+  background-color: lightgray;
+  display: block;
+  padding: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Each book displays one below the other */
+book {
+  display: block;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #999;
+  background-color: white;
+}
+
+/* Odd-numbered books have a different background color */
+book:nth-child(odd) {
+  background-color: lightblue;
+}
+
+/* Title styling: bold + red */
+title {
+  display: block;
+  font-weight: bold;
+  color: red;
+  margin-bottom: 6px;
+}
+
+/* Make remaining fields display cleanly on separate lines */
+author, publisher {
+  display: block;
+  margin-left: 10px;
+  margin-top: 2px;
+}
