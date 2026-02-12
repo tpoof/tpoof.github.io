@@ -27,12 +27,12 @@
           </p>
 
           <p>
-            <span class="label">Client Count:</span>
+            <span class="label">Client Count:</span> 
             <xsl:value-of select="count(/Accounts/Client)" />
           </p>
 
           <p>
-            <span class="label">Client Names:</span>
+            <span class="label">Client Names:</span> 
             <xsl:for-each select="/Accounts/Client">
               <xsl:if test="position() &gt; 1">
                 <xsl:choose>
@@ -45,7 +45,7 @@
           </p>
 
           <p>
-            <span class="label">Long-Term Clients (over 7 years):</span>
+            <span class="label">Long-Term Clients (over 7 years):</span> 
             <xsl:value-of select="count(/Accounts/Client[Years &gt; 7])" />
           </p>
         </div>
