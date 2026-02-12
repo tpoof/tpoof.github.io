@@ -18,7 +18,7 @@
       <body>
         <div class="card">
           <h1>ABC Financial Startup</h1>
-          <img src="assignment/financialstartup.jpg" alt="ABC Financial Startup" />
+          <img src="../assignment/financialstartup.jpg" alt="ABC Financial Startup" />
 
           <p>
             ABC Financial Startup provides personalized financial planning, investment guidance, and long-term wealth strategies
