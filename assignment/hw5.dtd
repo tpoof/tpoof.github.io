@@ -1,0 +1,22 @@
+<!-- Entity: expands &madeInUSA to string "Made in USA" -->
+<!ENTITY madeInUSA "Made in USA">
+
+<!-- Root: 1+  Prod elements (+ enforces at least 1 product) -->
+<!ELEMENT Products (Prod+)>
+
+<!-- Prod:  child-element order, color optional -->
+<!ELEMENT Prod (Details, Quantity, Unit_Price, Color?, Loc)>
+
+<!-- ProdID: ID type equals uniqueness across the document, #REQUIRED equals mandatory -->
+<!ATTLIST Prod ProdID ID #REQUIRED>
+
+<!-- Details (+ children) -->
+<!ELEMENT Details (Short_Desc, Long_Desc)>
+<!ELEMENT Short_Desc (#PCDATA)>
+<!ELEMENT Long_Desc (#PCDATA)>
+
+<!-- Remaining Prod children -->
+<!ELEMENT Quantity (#PCDATA)>
+<!ELEMENT Unit_Price (#PCDATA)>
+<!ELEMENT Color (#PCDATA)>
+<!ELEMENT Loc (#PCDATA)>
