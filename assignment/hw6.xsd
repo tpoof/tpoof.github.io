@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="Member">
+    <xs:complexType>
+      <xs:sequence>
+
+        <!-- name: max 30 char -->
+        <xs:element name="Name">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="30"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <!-- age: min 21; if ommitted, default to 21 -->
+        <xs:element name="Age" minOccurs="0" default="21">
+          <xs:simpleType>
+            <xs:restriction base="xs:integer">
+              <xs:minInclusive value="21"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="Job" type="xs:string"/>
+
+        <xs:element name="Date" type="xs:date"/>
+
+        <!-- phone: formatted ###-###-#### -->
+        <xs:element name="Phone">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="\d{3}-\d{3}-\d{4}"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
