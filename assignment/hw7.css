@@ -1,61 +1,38 @@
 @namespace w url("http://www.gov.org/west");
 @namespace e url("http://www.gov.org/east");
 
-/*  Page  */
 allStates {
-  display: table;
-  border-collapse: collapse;
-  width: 600px;
-  margin: 3rem auto;
-  font-family: "Public Sans", system-ui, sans-serif;
-  font-size: 0.95rem;
-  box-shadow: 0 8px 24px -8px rgba(9, 30, 41, 0.3);
-}
-
-/*  Rows  */
-*[region] {
-  display: table-row;
+  display: block;
+  font-family: sans-serif;
+  padding: 2rem;
 }
 
 *[region="west"] {
-  background-color: #d8edf3;  /* teal – west */
+  display: block;
+  background-color: lightblue;
+  margin: 4px 0;
+  padding: 4px 8px;
 }
 
 *[region="east"] {
-  background-color: #dce8f5;  /* blue – east */
-}
-
-*[region]:hover {
-  filter: brightness(0.93);
-}
-
-/*  Cells  */
-w|n, w|capital, w|region,
-e|n, e|capital, e|region {
-  display: table-cell;
-  padding: 0.65rem 1.1rem;
-  border-bottom: 1px solid rgba(0,0,0,0.07);
+  display: block;
+  background-color: lightcoral;
+  margin: 4px 0;
+  padding: 4px 8px;
 }
 
 w|n, e|n {
-  font-weight: 700;
-  width: 200px;
+  display: inline;
+  font-weight: bold;
 }
 
-w|n       { color: #255274; }
-e|n       { color: #1e597b; }
-
 w|capital, e|capital {
-  width: 200px;
+  display: inline;
+  margin-left: 1rem;
 }
 
 w|region, e|region {
-  width: 100px;
+  display: inline;
+  margin-left: 1rem;
   font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
-
-w|region { color: #256274; }
-e|region { color: #1e597b; }
