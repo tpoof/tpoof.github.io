@@ -1,1 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="hw7.css"?>
+<allStates
+  xmlns="http://www.gov.org/west"
+  xmlns:e="http://www.gov.org/east">
 
+  <!--  West Region  -->
+  <states>
+    <state>
+      <n>California</n>
+      <capital>Sacramento</capital>
+    </state>
+    <state>
+      <n>Washington</n>
+      <capital>Olympia</capital>
+    </state>
+    <state>
+      <n>Oregon</n>
+      <capital>Salem</capital>
+    </state>
+  </states>
+
+  <!--  East Region  -->
+  <e:states>
+    <e:state>
+      <e:n>Florida</e:n>
+      <e:capital>Tallahassee</e:capital>
+    </e:state>
+    <e:state>
+      <e:n>Maryland</e:n>
+      <e:capital>Annapolis</e:capital>
+    </e:state>
+    <e:state>
+      <e:n>North Carolina</e:n>
+      <e:capital>Raleigh</e:capital>
+    </e:state>
+  </e:states>
+
+</allStates>
