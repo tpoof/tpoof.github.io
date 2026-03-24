@@ -10,28 +10,22 @@ allStates {
   font-family: "Public Sans", system-ui, sans-serif;
   font-size: 0.95rem;
   box-shadow: 0 8px 24px -8px rgba(9, 30, 41, 0.3);
-  border-radius: 0.75rem;
-  overflow: hidden;
 }
 
 /*  Rows  */
-w|state,
-e|state {
+*[region] {
   display: table-row;
 }
 
-/* West rows – teal */
-w|state {
-  background-color: #d8edf3;
+*[region="west"] {
+  background-color: #d8edf3;  /* teal – west */
 }
 
-/* East rows – blue */
-e|state {
-  background-color: #d6eaf5;
+*[region="east"] {
+  background-color: #dce8f5;  /* blue – east */
 }
 
-w|state:hover,
-e|state:hover {
+*[region]:hover {
   filter: brightness(0.93);
 }
 
@@ -43,7 +37,6 @@ e|n, e|capital, e|region {
   border-bottom: 1px solid rgba(0,0,0,0.07);
 }
 
-/* State name column */
 w|n, e|n {
   font-weight: 700;
   width: 200px;
@@ -52,13 +45,10 @@ w|n, e|n {
 w|n       { color: #255274; }
 e|n       { color: #1e597b; }
 
-/* Capital column */
 w|capital, e|capital {
   width: 200px;
-  color: #325874;
 }
 
-/* Region badge column */
 w|region, e|region {
   width: 100px;
   font-size: 0.8rem;
