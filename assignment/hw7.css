@@ -1,8 +1,6 @@
-/*  Namespace declarations  */
-@namespace     url("http://www.gov.org/west");   /* default – west */
-@namespace e   url("http://www.gov.org/east");   /* prefix  – east */
+@namespace w url("http://www.gov.org/west");
+@namespace e url("http://www.gov.org/east");
 
-/*  Page / root  */
 allStates {
   display: block;
   font-family: "Public Sans", system-ui, sans-serif;
@@ -13,7 +11,7 @@ allStates {
 }
 
 /*  Section wrappers  */
-states,
+w|states,
 e|states {
   display: block;
   max-width: 680px;
@@ -24,21 +22,19 @@ e|states {
   box-shadow: 0 14px 32px -16px rgba(9, 30, 41, 0.35);
 }
 
-/* West wrapper – sky-blue accent */
-states {
+w|states {
   background-color: rgba(255, 255, 255, 0.88);
   border-color: #256274;
 }
 
-/* East wrapper – yale-blue accent */
 e|states {
   background-color: rgba(255, 255, 255, 0.88);
   border-color: #1e597b;
 }
 
-/*  Region heading  */
-states::before {
-  content: "🌊  West Region";
+/*  Region headings  */
+w|states::before {
+  content: "West Region";
   display: block;
   font-size: 1.2rem;
   font-weight: 700;
@@ -48,7 +44,7 @@ states::before {
 }
 
 e|states::before {
-  content: "🌅  East Region";
+  content: "East Region";
   display: block;
   font-size: 1.2rem;
   font-weight: 700;
@@ -58,63 +54,51 @@ e|states::before {
 }
 
 /*  State cards  */
-state,
+w|state,
 e|state {
-  display: block;          /* each state on its own line */
+  display: block;
   border-radius: 0.6rem;
   padding: 0.6rem 1rem;
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
 }
 
-/* West state – soft teal background */
-state {
+w|state {
   background-color: #d8edf3;
   border-left: 4px solid #3da3c2;
   color: #09131b;
 }
 
-/* East state – soft blue background */
 e|state {
   background-color: #d6eaf5;
   border-left: 4px solid #3294cd;
   color: #09131b;
 }
 
-/*  State name */
-n,
+/*  State name  */
+w|n,
 e|n {
   display: inline;
   font-weight: 700;
   font-size: 1rem;
 }
 
-n {
-  color: #255274;
-}
+w|n { color: #255274; }
+e|n { color: #1e597b; }
 
-e|n {
-  color: #1e597b;
-}
-
-/*  Capital */
-capital,
+/*  Capital  */
+w|capital,
 e|capital {
   display: inline;
   font-size: 0.88rem;
   margin-left: 0.5rem;
 }
 
-capital::before,
+w|capital::before,
 e|capital::before {
   content: "· ";
   color: #808a75;
 }
 
-capital {
-  color: #325874;
-}
-
-e|capital {
-  color: #28628a;
-}
+w|capital { color: #325874; }
+e|capital { color: #28628a; }
