@@ -1,104 +1,71 @@
 @namespace w url("http://www.gov.org/west");
 @namespace e url("http://www.gov.org/east");
 
+/*  Page  */
 allStates {
-  display: block;
+  display: table;
+  border-collapse: collapse;
+  width: 600px;
+  margin: 3rem auto;
   font-family: "Public Sans", system-ui, sans-serif;
-  background: linear-gradient(135deg, #e6e8e3, #d8edf3, #d8e7f3);
-  min-height: 100vh;
-  padding: 2.5rem 1.5rem;
-  color: #09131b;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 24px -8px rgba(9, 30, 41, 0.3);
+  border-radius: 0.75rem;
+  overflow: hidden;
 }
 
-/*  Section wrappers  */
-w|states,
-e|states {
-  display: block;
-  max-width: 680px;
-  margin: 0 auto 2rem auto;
-  border-radius: 1rem;
-  border: 2px solid;
-  padding: 1.25rem 1.5rem;
-  box-shadow: 0 14px 32px -16px rgba(9, 30, 41, 0.35);
-}
-
-w|states {
-  background-color: rgba(255, 255, 255, 0.88);
-  border-color: #256274;
-}
-
-e|states {
-  background-color: rgba(255, 255, 255, 0.88);
-  border-color: #1e597b;
-}
-
-/*  Region headings  */
-w|states::before {
-  content: "West Region";
-  display: block;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #256274;
-  margin-bottom: 0.85rem;
-  letter-spacing: 0.03em;
-}
-
-e|states::before {
-  content: "East Region";
-  display: block;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #1e597b;
-  margin-bottom: 0.85rem;
-  letter-spacing: 0.03em;
-}
-
-/*  State cards  */
+/*  Rows  */
 w|state,
 e|state {
-  display: block;
-  border-radius: 0.6rem;
-  padding: 0.6rem 1rem;
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
+  display: table-row;
 }
 
+/* West rows – teal */
 w|state {
   background-color: #d8edf3;
-  border-left: 4px solid #3da3c2;
-  color: #09131b;
 }
 
+/* East rows – blue */
 e|state {
   background-color: #d6eaf5;
-  border-left: 4px solid #3294cd;
-  color: #09131b;
 }
 
-/*  State name  */
-w|n,
-e|n {
-  display: inline;
+w|state:hover,
+e|state:hover {
+  filter: brightness(0.93);
+}
+
+/*  Cells  */
+w|n, w|capital, w|region,
+e|n, e|capital, e|region {
+  display: table-cell;
+  padding: 0.65rem 1.1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+/* State name column */
+w|n, e|n {
   font-weight: 700;
-  font-size: 1rem;
+  width: 200px;
 }
 
-w|n { color: #255274; }
-e|n { color: #1e597b; }
+w|n       { color: #255274; }
+e|n       { color: #1e597b; }
 
-/*  Capital  */
-w|capital,
-e|capital {
-  display: inline;
-  font-size: 0.88rem;
-  margin-left: 0.5rem;
+/* Capital column */
+w|capital, e|capital {
+  width: 200px;
+  color: #325874;
 }
 
-w|capital::before,
-e|capital::before {
-  content: "· ";
-  color: #808a75;
+/* Region badge column */
+w|region, e|region {
+  width: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-w|capital { color: #325874; }
-e|capital { color: #28628a; }
+w|region { color: #256274; }
+e|region { color: #1e597b; }
