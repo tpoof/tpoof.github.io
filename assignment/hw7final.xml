@@ -4,33 +4,33 @@
   xmlns:w="http://www.gov.org/west"
   xmlns:e="http://www.gov.org/east">
 
-  <w:state>
+  <w:state region="west">
     <w:n>California</w:n>
     <w:capital>Sacramento</w:capital>
     <w:region>West</w:region>
   </w:state>
-  <w:state>
+  <w:state region="west">
     <w:n>Washington</w:n>
     <w:capital>Olympia</w:capital>
     <w:region>West</w:region>
   </w:state>
-  <w:state>
+  <w:state region="west">
     <w:n>Oregon</w:n>
     <w:capital>Salem</w:capital>
     <w:region>West</w:region>
   </w:state>
 
-  <e:state>
+  <e:state region="east">
     <e:n>Florida</e:n>
     <e:capital>Tallahassee</e:capital>
     <e:region>East</e:region>
   </e:state>
-  <e:state>
+  <e:state region="east">
     <e:n>Maryland</e:n>
     <e:capital>Annapolis</e:capital>
     <e:region>East</e:region>
   </e:state>
-  <e:state>
+  <e:state region="east">
     <e:n>North Carolina</e:n>
     <e:capital>Raleigh</e:capital>
     <e:region>East</e:region>
