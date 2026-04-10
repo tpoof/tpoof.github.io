@@ -4,177 +4,153 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>XQuery Report — HW 8</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet"/>
+ <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/styles.css"/>
+
   <style>
-    :root {
-      --ink:       #1a1714;
-      --paper:     #f5f0e8;
-      --cream:     #ede7d9;
-      --rust:      #8b3a2a;
-      --gold:      #b07d3a;
-      --rule:      #c8bfaf;
-      --muted:     #6b6155;
-    }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Public Sans", system-ui, sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.8;
+    padding: 0 1rem 4rem;
+  }
 
-    body {
-      background: linear-gradient(135deg, var(--alabaster-grey-100), var(--sky-blue-light-100), var(--baltic-blue-100));
-      color: var(--baltic-blue-950);
-      font-family: "Public Sans", 'Source Serif 4', Georgia, serif;
-      font-weight: 300;
-      font-size: 17px;
-      line-height: 1.8;
-      padding: 0 1rem 4rem;
-    }
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+  }
 
-    /* ── body ── */
-    main {
-      max-width: 780px;
-      margin: 0 auto;
-    }
+  section { margin-top: 2.4rem; }
 
-    section { margin-top: 2.6rem; }
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--baltic-blue-700);
+    border-bottom: 1px solid var(--baltic-blue-200);
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.9rem;
+  }
 
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
-      font-weight: 700;
-      color: var(--rust);
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 0.35rem;
-      margin-bottom: 1rem;
-    }
+  p { margin-bottom: 1rem; }
 
-    p { margin-bottom: 1rem; }
+  blockquote {
+    margin: 1.4rem 0;
+    padding: 0.9rem 1.2rem;
+    border-left: 3px solid var(--baltic-blue-400);
+    background: var(--baltic-blue-50);
+    font-style: italic;
+    color: var(--baltic-blue-700);
+  }
 
-    /* ── pull quote ── */
-    blockquote {
-      margin: 1.6rem 0;
-      padding: 1rem 1.5rem;
-      border-left: 4px solid var(--gold);
-      background: var(--cream);
-      font-style: italic;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
+  /* code blocks */
+  .code-wrap {
+    background: var(--alabaster-grey-900);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1.2rem 0;
+  }
 
-    /* ── code blocks ── */
-    .code-wrap {
-      background: #211e1b;
-      border-radius: 6px;
-      overflow: hidden;
-      margin: 1.4rem 0;
-    }
+  .code-label {
+    background: var(--baltic-blue-700);
+    color: var(--baltic-blue-50);
+    font-size: 0.7rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 0.3rem 1rem;
+    font-weight: 600;
+  }
 
-    .code-label {
-      background: var(--rust);
-      color: #f5f0e8;
-      font-family: 'Source Serif 4', serif;
-      font-size: 0.7rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      padding: 0.35rem 1rem;
-      font-weight: 600;
-    }
+  pre {
+    padding: 1rem 1.2rem;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.87rem;
+    line-height: 1.7;
+    color: var(--alabaster-grey-100);
+  }
 
-    pre {
-      padding: 1.1rem 1.3rem;
-      overflow-x: auto;
-      font-family: 'Courier New', monospace;
-      font-size: 0.88rem;
-      line-height: 1.7;
-      color: #e8dcc8;
-    }
+  .kw  { color: #e2a86e; font-weight: bold; }
+  .fn  { color: #7ec8b8; }
+  .str { color: #b3d47a; }
+  .cmt { color: var(--alabaster-grey-500); font-style: italic; }
+  .var { color: #c8a0e0; }
 
-    .kw  { color: #e2a86e; font-weight: bold; }
-    .fn  { color: #7ec8b8; }
-    .str { color: #b3d47a; }
-    .cmt { color: #7a7060; font-style: italic; }
-    .var { color: #c8a0e0; }
+  /* breakdown table */
+  .breakdown {
+    background: var(--baltic-blue-50);
+    border: 1px solid var(--baltic-blue-200);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1.2rem 0;
+  }
 
-    /* ── annotated breakdown ── */
-    .breakdown {
-      background: var(--cream);
-      border: 1px solid var(--rule);
-      border-radius: 6px;
-      overflow: hidden;
-      margin: 1.4rem 0;
-    }
+  .breakdown table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 
-    .breakdown table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
+  .breakdown th {
+    background: var(--baltic-blue-800);
+    color: var(--baltic-blue-50);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    text-align: left;
+  }
 
-    .breakdown th {
-      background: var(--ink);
-      color: var(--paper);
-      font-family: 'Source Serif 4', serif;
-      font-weight: 600;
-      font-size: 0.75rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: 0.55rem 1rem;
-      text-align: left;
-    }
+  .breakdown td {
+    padding: 0.55rem 1rem;
+    border-bottom: 1px solid var(--baltic-blue-200);
+    vertical-align: top;
+  }
 
-    .breakdown td {
-      padding: 0.6rem 1rem;
-      border-bottom: 1px solid var(--rule);
-      vertical-align: top;
-    }
+  .breakdown tr:last-child td { border-bottom: none; }
+  .breakdown tr:nth-child(even) td { background: var(--baltic-blue-100); }
 
-    .breakdown tr:last-child td { border-bottom: none; }
-    .breakdown tr:nth-child(even) td { background: rgba(255,255,255,0.45); }
+  .breakdown td:first-child {
+    font-family: 'Courier New', monospace;
+    font-size: 0.83rem;
+    color: var(--baltic-blue-600);
+    white-space: nowrap;
+    width: 38%;
+  }
 
-    .breakdown td:first-child {
-      font-family: 'Courier New', monospace;
-      font-size: 0.83rem;
-      color: var(--rust);
-      white-space: nowrap;
-      width: 38%;
-    }
+  /* result box */
+  .result-box {
+    border: 1px solid var(--baltic-blue-300);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    background: var(--baltic-blue-50);
+    margin: 1.2rem 0;
+  }
 
-    /* ── result box ── */
-    .result-box {
-      border: 2px solid var(--gold);
-      border-radius: 6px;
-      padding: 1.1rem 1.4rem;
-      background: var(--cream);
-      margin: 1.4rem 0;
-    }
+  .result-box .result-title {
+    font-size: 0.7rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--baltic-blue-500);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
 
-    .result-box .result-title {
-      font-size: 0.72rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
+  .result-box ul { list-style: none; padding: 0; }
 
-    .result-box ul {
-      list-style: none;
-      padding: 0;
-    }
+  .result-box li {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: var(--baltic-blue-900);
+    padding: 0.1rem 0;
+  }
 
-    .result-box li {
-      font-family: 'Courier New', monospace;
-      font-size: 0.92rem;
-      color: var(--ink);
-      padding: 0.15rem 0;
-    }
-
-    .result-box li::before {
-      content: "→ ";
-      color: var(--rust);
-      font-weight: bold;
-    }
-
-  </style>
+  .result-box li::before {
+    content: "→ ";
+    color: var(--baltic-blue-400);
+    font-weight: bold;
+  }
+</style>
+  
 </head>
 <body class="page-shell">
 
