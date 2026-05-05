@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Homework 10</title>
+  <title>Homework 10 - JSON</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -15,19 +15,19 @@
     header {
       margin-bottom: 2.5rem;
       padding-bottom: 1.25rem;
-      border-bottom: 2px solid var(--baltic-blue-200);
+      border-bottom: 2px solid #b2cfe6;
     }
 
     header h1 {
       font-size: 2rem;
       font-weight: 700;
-      color: var(--baltic-blue-800);
+      color: #19364d;
       margin-bottom: 0.25rem;
     }
 
     header p {
       font-size: 1rem;
-      color: var(--alabaster-grey-600);
+      color: #666e5e;
       font-weight: 300;
     }
 
@@ -36,29 +36,29 @@
     h2 {
       font-size: 1.25rem;
       font-weight: 600;
-      color: var(--baltic-blue-700);
+      color: #255274;
       margin-bottom: 1rem;
       padding-left: 0.75rem;
-      border-left: 4px solid var(--cerulean-400);
+      border-left: 4px solid #428ebd;
     }
 
     h3 {
       font-size: 1rem;
       font-weight: 600;
-      color: var(--baltic-blue-700);
+      color: #255274;
       margin: 1.25rem 0 0.5rem;
     }
 
     p {
       font-size: 0.95rem;
-      color: var(--page-text);
+      color: #09131b;
       line-height: 1.7;
       margin-bottom: 0.75rem;
     }
 
     pre {
-      background-color: var(--baltic-blue-900);
-      color: var(--baltic-blue-100);
+      background-color: #0c1b27;
+      color: #d8e7f3;
       border-radius: 8px;
       padding: 1rem 1.25rem;
       font-family: "Courier New", Courier, monospace;
@@ -71,15 +71,15 @@
     code {
       font-family: "Courier New", Courier, monospace;
       font-size: 0.875rem;
-      background: var(--baltic-blue-100);
-      color: var(--baltic-blue-800);
+      background: #d8e7f3;
+      color: #19364d;
       padding: 1px 5px;
       border-radius: 4px;
     }
 
     .answer-box {
-      background: var(--cerulean-50);
-      border: 1px solid var(--cerulean-300);
+      background: #ecf4f8;
+      border: 1px solid #8ebbd7;
       border-radius: 8px;
       padding: 1rem 1.25rem;
       margin: 0.75rem 0 1rem;
@@ -90,13 +90,13 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.07em;
-      color: var(--cerulean-600);
+      color: #357197;
       margin-bottom: 0.5rem;
     }
 
     .answer-box pre {
-      background: var(--cerulean-800);
-      color: var(--cerulean-50);
+      background: #1b394b;
+      color: #ecf4f8;
       margin: 0;
     }
 
@@ -114,15 +114,15 @@
       gap: 0.75rem;
       font-size: 0.95rem;
       line-height: 1.6;
-      color: var(--page-text);
+      color: #09131b;
     }
 
     .step-num {
       min-width: 24px;
       height: 24px;
       border-radius: 50%;
-      background: var(--cerulean-500);
-      color: #fff;
+      background: #428ebd;
+      color: #ffffff;
       font-size: 0.75rem;
       font-weight: 700;
       display: flex;
@@ -131,34 +131,39 @@
       margin-top: 2px;
     }
 
+    /* TABLE - all colors hardcoded for guaranteed contrast */
     .table-demo {
-      background: #fff;
-      border: 1px solid var(--alabaster-grey-200);
+      border: 1px solid #ccd0c8;
       border-radius: 8px;
       overflow: hidden;
       margin: 0.75rem 0 1rem;
     }
 
-    .table-demo table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .table-demo table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
 
     .table-demo th {
-      background: var(--baltic-blue-700);
-      color: #fff;
+      background-color: #255274 !important;
+      color: #ffffff !important;
       font-weight: 600;
       text-align: left;
       padding: 0.6rem 1rem;
     }
 
-    /* FIX: hardcoded dark text so it's always readable on white */
     .table-demo td {
+      background-color: #ffffff;
+      color: #09131b !important;
       padding: 0.6rem 1rem;
-      border-bottom: 1px solid var(--alabaster-grey-200);
-      color: #1a1c17;
+      border-bottom: 1px solid #ccd0c8;
     }
 
+    /* JSON LINK SECTION - all hardcoded */
     .json-link-section {
-      background: var(--alabaster-grey-50);
-      border: 1px solid var(--alabaster-grey-200);
+      background-color: #f2f3f1;
+      border: 1px solid #ccd0c8;
       border-radius: 10px;
       padding: 1.25rem 1.5rem;
       display: flex;
@@ -168,14 +173,18 @@
       flex-wrap: wrap;
     }
 
-    .json-link-section p { margin: 0; font-size: 0.95rem; color: var(--alabaster-grey-700); }
+    .json-link-section p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #33372f !important;
+    }
 
     .json-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      background: var(--cerulean-600);
-      color: #fff;
+      background-color: #255274 !important;
+      color: #ffffff !important;
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
@@ -184,7 +193,10 @@
       white-space: nowrap;
     }
 
-    .json-btn:hover { background: var(--cerulean-700); }
+    .json-btn:hover {
+      background-color: #19364d !important;
+      color: #ffffff !important;
+    }
   </style>
 </head>
 <body class="page-shell">
@@ -244,7 +256,7 @@
         </li>
         <li>
           <div class="step-num">4</div>
-          <span>The <code>+</code> operator concatenates the HTML tags and values into one string</span>
+          <span>The <code>+</code> operator links the HTML tags and values into one string</span>
         </li>
       </ul>
 
