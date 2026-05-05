@@ -78,4 +78,191 @@
     }
 
     .answer-box {
-      backg
+      background: var(--cerulean-50);
+      border: 1px solid var(--cerulean-300);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 0.75rem 0 1rem;
+    }
+
+    .answer-box .answer-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--cerulean-600);
+      margin-bottom: 0.5rem;
+    }
+
+    .answer-box pre {
+      background: var(--cerulean-800);
+      color: var(--cerulean-50);
+      margin: 0;
+    }
+
+    .steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 0.75rem 0 1rem;
+    }
+
+    .steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--page-text);
+    }
+
+    .step-num {
+      min-width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--cerulean-500);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .table-demo {
+      background: #fff;
+      border: 1px solid var(--alabaster-grey-200);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 0.75rem 0 1rem;
+    }
+
+    .table-demo table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+
+    .table-demo th {
+      background: var(--baltic-blue-700);
+      color: #fff;
+      font-weight: 600;
+      text-align: left;
+      padding: 0.6rem 1rem;
+    }
+
+    /* FIX: hardcoded dark text so it's always readable on white */
+    .table-demo td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--alabaster-grey-200);
+      color: #1a1c17;
+    }
+
+    .json-link-section {
+      background: var(--alabaster-grey-50);
+      border: 1px solid var(--alabaster-grey-200);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .json-link-section p { margin: 0; font-size: 0.95rem; color: var(--alabaster-grey-700); }
+
+    .json-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--cerulean-600);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.55rem 1.25rem;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .json-btn:hover { background: var(--cerulean-700); }
+  </style>
+</head>
+<body class="page-shell">
+  <div class="container">
+
+    <header>
+      <h1>Homework 10</h1>
+      <p>XML to JSON Conversion &amp; Working with JSON in JavaScript</p>
+    </header>
+
+    <!-- Part 1 FIRST -->
+    <section>
+      <h2>Part 1 &mdash; JSON File</h2>
+      <p>The XML employee data from <code>hw10.xml</code> was converted to JSON format and saved as <code>hw10.json</code>.</p>
+      <div class="json-link-section">
+        <p>View the converted JSON file: <strong>hw10.json</strong></p>
+        <a class="json-btn" href="hw10.json">&#128196; hw10.json</a>
+      </div>
+    </section>
+
+    <!-- Part 2 SECOND -->
+    <section>
+      <h2>Part 2 &mdash; JavaScript Question</h2>
+
+      <p>Given the following JavaScript array of objects:</p>
+      <pre>var friends = [{
+    "name": "John",
+    "age": "28",
+    "gender": "male",
+    "profession": "sales rep"
+},
+{
+    "name": "Maryenne",
+    "age": "26",
+    "gender": "female",
+    "profession": "web developer"
+}];</pre>
+
+      <p>And the following code that constructs an HTML table row:</p>
+      <pre>var tablecell1 = '&lt;tr&gt;&lt;td&gt;' + friends[0].name +
+'&lt;/td&gt;&lt;td&gt;' + friends[0].profession +
+'&lt;/td&gt;&lt;/tr&gt;';</pre>
+
+      <h3>How the expression evaluates:</h3>
+      <ul class="steps">
+        <li>
+          <div class="step-num">1</div>
+          <span><code>friends[0]</code> accesses the first object in the array (index 0 = John's object)</span>
+        </li>
+        <li>
+          <div class="step-num">2</div>
+          <span><code>friends[0].name</code> returns <code>"John"</code></span>
+        </li>
+        <li>
+          <div class="step-num">3</div>
+          <span><code>friends[0].profession</code> returns <code>"sales rep"</code></span>
+        </li>
+        <li>
+          <div class="step-num">4</div>
+          <span>The <code>+</code> operator concatenates the HTML tags and values into one string</span>
+        </li>
+      </ul>
+
+      <h3>Complete value of <code>tablecell1</code>:</h3>
+      <div class="answer-box">
+        <div class="answer-label">Answer &mdash; full HTML output</div>
+        <pre>&lt;tr&gt;&lt;td&gt;John&lt;/td&gt;&lt;td&gt;sales rep&lt;/td&gt;&lt;/tr&gt;</pre>
+      </div>
+
+      <h3>Rendered result:</h3>
+      <div class="table-demo">
+        <table>
+          <tr><th>Name</th><th>Profession</th></tr>
+          <tr><td>John</td><td>sales rep</td></tr>
+        </table>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
